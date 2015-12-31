@@ -3,6 +3,7 @@ angular.module('shortly.links', [])
 .controller('LinksController', function ($scope, Links) {
   // Your code here
   $scope.data = {};
+  $scope.name = "LinksController";
   $scope.data.links;
   $scope.getLinks = function(){
     Links.getLinks()
@@ -12,5 +13,6 @@ angular.module('shortly.links', [])
       console.log('scope data links', $scope.data.links);
     });
   };
+  
   $scope.getLinks(); 
 });

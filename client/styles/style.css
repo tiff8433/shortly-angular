@@ -37,6 +37,7 @@ h1 {
   line-height: 20px;
   padding: 10px;
   display: block;
+  display: inline;
   text-align: center;
 }
 

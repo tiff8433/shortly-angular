@@ -1,6 +1,18 @@
-<div id='container'>
-<!-- Your code here -->
-
+<div class='creator'>
+   <form name="shortenForm" ng-submit='addLink()'>
+    <input name='link' type = "url"
+    ng-model='link.url'
+    placeholder="Enter your url here" required
+    ng-class="{'error': shortenForm.$invalid && shortenForm.$dirty}"/>
+    
+    <button type="submit" value ="Shorten" ng-disables="shortenForm.$invalid">Add</button>
+  </form>
+  <div ng-if='shortenForm.link.$error.required && shortenForm.$dirty' class="message">
+    <h2>Url required</h2>
+  </div>
+  <div ng-show='shortenForm.link.$error.url && shortenForm.$dirty' class="message">
+    <h2>Not a valid url</h2>
+  </div>
 </div>
 
 
