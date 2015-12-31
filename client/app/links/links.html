@@ -1,7 +1,7 @@
 <input type='text' ng-model='search' placeholder='filter' />
 <div class="links">
 
-<div class='link' ng-repeat="link in data.links | filter:search | orderBy:'created_at'">
+<div class='link' ng-repeat="link in data.links | filter:search | orderBy:'-visits'"> <!-- ng-repeat over array of links, filtered by whatever typed in search bar -->
 <img src="assets/redirect_icon.png">
   <div class='info'>
     <div class='visits'>
@@ -9,6 +9,6 @@
     </div>
       <div class="title">{{ link.title }}</div>
       <div class="original">{{ link.url }}</div>
-      <a href="http://localhost:8000/api/links/{{ link.code }}">{{ link.base_url }}/{{ link.code }}</a>
+      <a href="http://localhost:8000/api/links/{{ link.code }}">{{ link.base_url }}/{{ link.code }}</a>  <!-- redirect url -->
   </div>
 </div>

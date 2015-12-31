@@ -1,12 +1,20 @@
 <div class='creator'>
+  <!-- on the submit, run the addLink function -->
+   <!-- important to give names that are not scope variables -->
    <form name="shortenForm" ng-submit='addLink()'>
-    <input name='link' type = "url"
+    <!-- important to get input name and type when doing validation -->
+    <!-- url is a regex given for free(from angular) to check to see if http:// is there-->
+    <!-- required is a validation check, it is required if you're going to submit -->
+    <input name='link' type = "url" 
     ng-model='link.url'
     placeholder="Enter your url here" required
     ng-class="{'error': shortenForm.$invalid && shortenForm.$dirty}"/>
-    
+    <!-- ng-class takes an object literal, if shortly form is invalid and if its dirty, it will show error(error class) -->
+    <!-- ngdisables disables a button from submitting if statement is true -->
     <button type="submit" value ="Shorten" ng-disables="shortenForm.$invalid">Add</button>
   </form>
+  <!-- Validation messages, show message IF statement is true -->
+  <!-- .error will take all validations and return true if one is an error, then it will show that message -->
   <div ng-if='shortenForm.link.$error.required && shortenForm.$dirty' class="message">
     <h2>Url required</h2>
   </div>

@@ -1,24 +1,26 @@
 angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
+  //will fetch all links
   var getLinks = function(link) {
     return $http({
       method: 'GET',
       url: '/api/links',
       data: link
     }).then(function(resp){
-      //prop want to change
+      //responding with data
       return resp.data;
     });
   };
-
-  var addLink = function(url){
+  //sending link to DB
+  var addLink = function(url){ //passing in a url
     return $http({
       method: 'POST',
       url: '/api/links',
-      data: url
+      data: url // {url: 'http://example.com'} -- server is looking for url objects
     });
   };
+  //return both of these function so they can be used in any controller
   return {
     getLinks: getLinks,
     addLink: addLink
