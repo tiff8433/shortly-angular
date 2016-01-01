@@ -7,6 +7,7 @@ angular.module('shortly.shorten', [])
     //when ajax request is occuring, it will show the spinner loaded in the 
     //assets file
     // $scope.loading = true; 
+    console.log($scope.link, 'scope.link');
     Links.addLink($scope.link)
     .then(function(){
       //stop loading spinner
